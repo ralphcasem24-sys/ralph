@@ -1,0 +1,96 @@
+ion class="contact-section" aria-label="Contact M.M.M Lumpia Store">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>M.M.M's lumpia</title>
+    </head>
+<body>
+<header>
+     <a href="#" class="logo">M.M.M LUMPIA STORE</a>
+     <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="Services.html">Products</a>
+        <a href="Contact.html">Contact</a>
+        <a href="About Us.html">About us.</a>
+     </nav>
+ </header>
+  <div class="contact-card" aria-hidden="false">
+    <div>
+      <div class="store-title">M.M.M Lumpia Store</div>
+      <div class="owners">Maribel • Marisol • Marites</div>
+    </div>
+
+    <div class="info-row"><i class="fas fa-map-marker-alt"></i>
+      <div>
+        <div style="font-weight:600;color:#fff">santo nino, visayan groupd 5805, Caloocan City</div>
+        <div style="font-size:13px;color:#cfc7c5">Philippines</div>
+      </div>
+    </div>
+
+    <div class="info-row"><i class="fas fa-phone"></i>
+      <div><a href="tel:+639633119490" style="color:#ddd;text-decoration:none">+63 912 345 6789</a></div>
+    </div>
+
+    <div class="info-row"><i class="fas fa-envelope"></i>
+      <div><a href="rannielcasem@gmail.com" style="color:#ddd;text-decoration:none">mmm.lumpia@example.com</a></div>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:#cfc7c5;font-weight:600">Business Hours</div>
+      <div class="hours">Mon–Sat: 9:00 AM – 8:00 PM • Sun: Closed</div>
+    </div>
+
+    <div style="margin-top:6px;font-size:13px;color:#bfb8b7">
+      Follow us:
+      <span style="margin-left:8px">
+        <a href="#" style="color:#d15b56;margin-right:8px;text-decoration:none;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color:#d15b56;margin-right:8px;text-decoration:none;"><i class="fab fa-github"></i></a>
+        <a href="#" style="color:#d15b56;text-decoration:none;"><i class="fab fa-x-twitter"></i></a>
+      </span>
+    </div>
+  </div>
+
+  <form class="contact-form" id="contactForm" onsubmit="return sendMessage(event)">
+    <label for="name">Your Name</label>
+    <input id="name" type="text" placeholder="Juan dela Cruz" required>
+
+    <label for="email">Your Email</label>
+    <input id="email" type="email" placeholder="you@example.com" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" placeholder="Hi! I'd like to order 10 pork lumpia for pickup..." required></textarea>
+
+    <div class="send-row">
+      <div style="font-size:13px;color:#bfb8b7">We'll reply as soon as we can.</div>
+      <button class="btn-send" type="submit">Send Message</button>
+    </div>
+  </form>
+</section>
+
+<script>
+  function sendMessage(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+
+    const target = 'rannielcasem@gmail.com';
+
+    // build subject and body
+    const subject = encodeURIComponent(`Website Inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+
+    // open default mail client with prefilled mail (no backend)
+    window.location.href = `mailto:${target}?subject=${subject}&body=${body}`;
+    return false;
+  }
